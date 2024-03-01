@@ -4,9 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progra</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+        .contenedor {
+            margin: 0 !important;
+            display: grid;
+            gap: 4px;
+            grid-template-rows: 40px 40px auto 60px 60px 40px;
+            grid-template-columns: 1fr;
+            grid-template-areas: 'cabeza' 'sidebar' 'contenido' 'widget' 'widget2' 'pie' ;
+            height: 100%;
+        }
+        @media screen and (min-width: 480px) {
+            .contenedor {
+                display: grid;
+                grid-template-rows: 40px auto 80px 40px;
+                grid-template-columns: 160px auto auto;
+                grid-template-areas: 
+                'cabeza cabeza cabeza' 
+                'sidebar contenido contenido' 
+                'sidebar widget widget2' 
+                'pie pie pie' ;
+            }
+        }
+        .cabeza {
+            grid-area: cabeza;
+            background: #ff5514;
+        }
+        .pie {
+            grid-area: pie;
+            background: #2f3514;
+        }
+        .menuLateral {
+            grid-area: sidebar;
+            background: #0f5514;
+        }
+        .contenido {
+            grid-area: contenido;
+            background: #3f5314;
+        }
+        .widget {
+            grid-area: widget;
+            width: 100%;
+            background: #02005f;
+        }
+        .widget2 {
+            grid-area: widget2;
+            width: 100%;
+            background: #fffb14;
+        }
+        .cabeza, .pie, .menuLateral, .contenido, .widget, .widget2 {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="contenedor">
+        <div class="cabeza">Cabeza</div>
+        <div class="menuLateral">MenuLateral</div>
+        <div class="contenido">Contenido</div>
+        <div class="widget">Widget</div>
+        <div class="widget2">widget2</div>
+        <div class="pie">Pie</div>
+    </div>
 </body>
 </html>
 
