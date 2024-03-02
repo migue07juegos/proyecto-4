@@ -18,7 +18,7 @@
             grid-template-areas: 'cabeza' 'sidebar' 'contenido' 'widget' 'widget2' 'pie' ;
             height: 100%;
         }
-        @media screen and (min-width: 480px) { /*Realiza el css que esta dentro de las llaves unicamente cuando la pantalla es mayor al tamaño proporcionado en min-width*/
+        @media screen and (min-width: 1280px) { /*Realiza el css que esta dentro de las llaves unicamente cuando la pantalla es mayor al tamaño proporcionado en min-width*/
             .contenedor {
                 display: grid;
                 grid-template-rows: 40px auto 80px 40px; /*Determina el tamaño de las filas 1,3,4 y deja la fila 2 de tamaño automatico*/
@@ -29,6 +29,18 @@
                 'sidebar widget widget2' 
                 'pie pie pie' ;
             }
+            .menuLateral {
+                grid-area: sidebar;
+                background: #0f5514;
+                transition: width 0.5s;
+                overflow: hidden;
+            }
+            .menuLateral:hover {
+                width: 160px;
+            }
+            .hovered{ /*Clase añadida por el eventListener*/
+                grid-template-columns: 160px auto auto; /*Modifica el tamaño de la primer columna de todas las filas*/
+            }
         }
         .cabeza {
             grid-area: cabeza; /*Todos los grid-area: son como identificadores para el grid-template-areas*/
@@ -38,17 +50,9 @@
             grid-area: pie;
             background: #2f3514;
         }
-        .menuLateral {
+        .menuLateral{
             grid-area: sidebar;
             background: #0f5514;
-            transition: width 0.5s;
-            overflow: hidden;
-        }
-        .menuLateral:hover {
-            width: 160px;
-        }
-        .hovered{ /*Clase añadida por el eventListener*/
-            grid-template-columns: 160px auto auto; /*Modifica el tamaño de la primer columna de todas las filas*/
         }
         .contenido {
             grid-area: contenido;
