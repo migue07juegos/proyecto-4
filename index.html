@@ -6,11 +6,11 @@
     <title>Progra</title>
     <style>
         body {
-            margin: 0;
-            height: 100vh;
-        }
-        .contenedor {
             margin: 0 !important;
+            height: 100vh;
+            background: #000000;
+        }
+        .contenedor { /*Contenedor de display grid, que es como si fuera una tabla, abajo se explica sus componentes*/
             display: grid;
             gap: 4px;
             grid-template-rows: 40px 40px auto 60px 60px 40px;
@@ -18,12 +18,12 @@
             grid-template-areas: 'cabeza' 'sidebar' 'contenido' 'widget' 'widget2' 'pie' ;
             height: 100%;
         }
-        @media screen and (min-width: 480px) {
+        @media screen and (min-width: 480px) { /*Realiza el css que esta dentro de las llaves unicamente cuando la pantalla es mayor al tamaño proporcionado en min-width*/
             .contenedor {
                 display: grid;
-                grid-template-rows: 40px auto 80px 40px;
-                grid-template-columns: 160px auto auto;
-                grid-template-areas: 
+                grid-template-rows: 40px auto 80px 40px; /*Determina el tamaño de las filas 1,3,4 y deja la fila 2 de tamaño automatico*/
+                grid-template-columns: 80px auto auto; /*Determina el tamaño la primer columna de todas las filas y deja las otras dos de tamaño automatico*/
+                grid-template-areas: /*Determina el nombre del area que tendra cada fila y columna, se deja el mismo nombre cuando es un solo componente*/
                 'cabeza cabeza cabeza' 
                 'sidebar contenido contenido' 
                 'sidebar widget widget2' 
@@ -31,7 +31,7 @@
             }
         }
         .cabeza {
-            grid-area: cabeza;
+            grid-area: cabeza; /*Todos los grid-area: son como identificadores para el grid-template-areas*/
             background: #ff5514;
         }
         .pie {
@@ -41,6 +41,14 @@
         .menuLateral {
             grid-area: sidebar;
             background: #0f5514;
+            transition: width 0.5s;
+            overflow: hidden;
+        }
+        .menuLateral:hover {
+            width: 160px;
+        }
+        .hovered{ /*Clase añadida por el eventListener*/
+            grid-template-columns: 160px auto auto; /*Modifica el tamaño de la primer columna de todas las filas*/
         }
         .contenido {
             grid-area: contenido;
@@ -48,13 +56,11 @@
         }
         .widget {
             grid-area: widget;
-            width: 100%;
             background: #02005f;
         }
         .widget2 {
             grid-area: widget2;
-            width: 100%;
-            background: #fffb14;
+            background: #53053f;
         }
         .cabeza, .pie, .menuLateral, .contenido, .widget, .widget2 {
             display: flex;
@@ -62,19 +68,30 @@
             justify-content: center;
             align-items: center;
             vertical-align: middle;
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
     <div class="contenedor">
         <div class="cabeza">Cabeza</div>
-        <div class="menuLateral">MenuLateral</div>
+        <div class="menuLateral">Menu Lateral</div>
         <div class="contenido">Contenido</div>
         <div class="widget">Widget</div>
         <div class="widget2">widget2</div>
         <div class="pie">Pie</div>
     </div>
+    <script>
+        const menuLateral = document.querySelector('.menuLateral'); /*Selecciona el menu lateral*/
+        const contenedor = document.querySelector('.contenedor'); /*Selecciona el contenedor*/
+
+        menuLateral.addEventListener('mouseenter', function() { /*Añade un evento al hover del menu lateral*/
+            contenedor.classList.add('hovered'); /*Modifica la clase del contenedor para poder aplicar otros estilos al elemento padre*/
+        });
+        
+        menuLateral.addEventListener('mouseleave', function() {
+            contenedor.classList.remove('hovered'); /*Regresa la clase del contenedor a su estado original*/
+        });
+    </script>
 </body>
 </html>
-
-
