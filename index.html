@@ -32,15 +32,12 @@
                 'sidebar contenido contenido' 
                 'sidebar widget widget2' 
                 'pie pie pie' ;
+                transition: grid-template-columns 0.5s ease; /*Añade un efecto de entrada lento, como si de un fade-in y fade*out se tratara, en este caso en la trancision "grid-template-columns"*/
             }
             .menuLateral {
                 grid-area: sidebar;
                 background: #0f5514;
-                transition: width 0.5s;
                 overflow: hidden;
-            }
-            .menuLateral:hover {
-                width: 160px;
             }
             .hovered{ /*Clase añadida por el eventListener*/
                 grid-template-columns: 160px auto auto; /*Modifica el tamaño de la primer columna de todas las filas*/
@@ -71,7 +68,6 @@
         }
         .contenido {
             grid-area: contenido;
-            background: #3f5314;
         }
         .widget {
             grid-area: widget;
@@ -124,6 +120,9 @@
             direction: ltr;
             -webkit-font-smoothing: antialiased;
         }
+        object {
+            border: #ffffff solid 1px; /*Preventivo, solo para diferenciar los tamaños de las ventanas -------> quitar*/
+        }
         @media screen and (max-width: 1280px) {
             .liM:active { /*El ":active" aplica los efectos cueando se activa el componente de la calse que se le da, funciona como el hover para celular*/
                 background: #0c0c0c;
@@ -141,18 +140,29 @@
         <div class="cabeza">Cabeza</div>
         <div class="menuLateral">
             <ul class="menu-content">
-                <li class="liM"><a class="aM" href="#">
-                    <span class="iconos"><img src="Iconos/plantel.svg" alt="Icono de inicio"></span><span>Plantel</span></a>
+                <li id="btn" class="liM">
+                    <div class="aM">
+                        <span class="iconos"><img src="Iconos/inicio.svg" alt="Icono de inicio"></span><span>Inicio</span>
+                    </div>
                 </li>
-                <li class="liM"><a class="aM" href="#">
-                    <span class="iconos"><img src="Iconos/tramites.svg" alt="Icono de inicio"></span><span>Tramites</span></a>
+                <li id="btn1" class="liM">
+                    <div class="aM">
+                        <span class="iconos"><img src="Iconos/plantel.svg" alt="Icono de plantel"></span><span>Plantel</span>
+                    </div>
                 </li>
-                <li class="liM"><a class="aM" href="#">
-                    <span class="iconos"><img src="Iconos/instalaciones.svg" alt="Icono de inicio"></span><span>Mapa</span></a>
+                <li id="btn2" class="liM">
+                    <div class="aM">
+                        <span class="iconos"><img src="Iconos/tramites.svg" alt="Icono de tramites"></span><span>Tramites</span>
+                    </div>
+                </li>
+                <li id="btn3" class="liM">
+                    <div class="aM">
+                        <span class="iconos"><img src="Iconos/mapa.svg" alt="Icono de mapa"></span><span>Mapa</span>
+                    </div>
                 </li>
             </ul>
         </div>
-        <div class="contenido">Contenido</div>
+        <div class="contenido"><object id="obj" data="Contenido/1_principal.html" type="text/html" height="100% !important" width="100% !important"></object></div>
         <div class="widget">Widget</div>
         <div class="widget2">widget2</div>
         <div class="pie">Pie</div>
@@ -162,12 +172,29 @@
         const contenedor = document.querySelector('.contenedor'); /*Selecciona el contenedor*/
 
         menuLateral.addEventListener('mouseenter', function() { /*Añade un evento al hover del menu lateral*/
-            contenedor.classList.add('hovered'); /*Modifica la clase del contenedor para poder aplicar otros estilos al elemento padre*/
+            contenedor.classList.add('hovered'); /*Modifica la clase del contenedor para poder aplicar otros estilos al elemento padre agregando la clase "hovered"*/
         });
         
         menuLateral.addEventListener('mouseleave', function() {
-            contenedor.classList.remove('hovered'); /*Regresa la clase del contenedor a su estado original*/
+            contenedor.classList.remove('hovered'); /*Regresa la clase del contenedor a su estado original removiendo la clase "hovered"*/
         });
+
+        document.getElementById("btn").addEventListener("click", function() {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/1_principal.html") /*Cambia los atributos de la variable objeto, en este caso el data para cambiarle la informacion a la etiqueta <object>*/
+        })
+        document.getElementById("btn1").addEventListener("click", function() {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/2_plantel.html") /*Cambia los atributos de la variable objeto, en este caso el data para cambiarle la informacion a la etiqueta <object>*/
+        })
+        document.getElementById("btn2").addEventListener("click", function() {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/3_tramites.html")
+        })  
+        document.getElementById("btn3").addEventListener("click", function() {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/4_map.html")
+        })
     </script>
 </body>
 </html>
