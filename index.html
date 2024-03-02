@@ -13,9 +13,13 @@
         .contenedor { /*Contenedor de display grid, que es como si fuera una tabla, abajo se explica sus componentes*/
             display: grid;
             gap: 4px;
-            grid-template-rows: 40px 40px auto 60px 60px 40px;
-            grid-template-columns: 15px auto;
-            grid-template-areas: 'img cabeza' 'sidebar sidebar' 'contenido contenido' 'widget widget' 'widget2 widget2' 'pie pie' ;
+            grid-template-rows: 57.33px auto 80px 40px;
+            grid-template-columns: 80px auto auto;
+            grid-template-areas: 
+            'img cabeza cabeza' 
+            'sidebar contenido contenido' 
+            'sidebar widget widget2' 
+            'pie pie pie' ;
             height: 100%;
         }
         @media screen and (min-width: 1280px) { /*Realiza el css que esta dentro de las llaves unicamente cuando la pantalla del dispositivo es mayor al tamaño proporcionado en min-width*/
@@ -117,7 +121,15 @@
             direction: ltr;
             -webkit-font-smoothing: antialiased;
         }
+        @media screen and (max-width: 1280px) {
+            .liM:active { /*El ":active" aplica los efectos cueando se activa el componente de la calse que se le da, funciona como el hover para celular*/
+                background: #0c0c0c;
+            }
 
+            .liM span:nth-child(2) {/*El ":nth-child('n')" selecciona elementos que son el 'n' hijo de su elemento padre*/
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -129,10 +141,10 @@
                 <li class="liM"><a class="aM" href="#">
                     <span class="iconos"><img src="Iconos/plantel.svg" alt="Icono de inicio"></span><span>Plantel</span></a>
                 </li>
-                <li class="liM"><a class="aM" href="https://migue07juegos.github.io/Concesionaria_Java/Guia_Usuario.html">
+                <li class="liM"><a class="aM" href="#">
                     <span class="iconos"><img src="Iconos/tramites.svg" alt="Icono de inicio"></span><span>Tramites</span></a>
                 </li>
-                <li class="liM"><a class="aM" href="https://migue07juegos.github.io/Concesionaria_Java/Detalles.html">
+                <li class="liM"><a class="aM" href="#">
                     <span class="iconos"><img src="Iconos/instalaciones.svg" alt="Icono de inicio"></span><span>Mapa</span></a>
                 </li>
             </ul>
