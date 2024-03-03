@@ -132,13 +132,17 @@
             direction: ltr;
             -webkit-font-smoothing: antialiased;
         }
-        @media screen and (max-width: 1280px) {
+        @media screen and (max-width: 1279px) {
             .liM:active { /*El ":active" aplica los efectos cueando se activa el componente de la calse que se le da, funciona como el hover para celular*/
                 background: #0c0c0c;
             }
 
             .liM span:nth-child(2) {/*El ":nth-child('n')" selecciona elementos que son el 'n' hijo de su elemento padre*/
                 display: none;
+            }
+            h3 {
+                max-height: 50% !important;
+                font-size: 75%;
             }
         }
     </style>
