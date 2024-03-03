@@ -1,5 +1,8 @@
+html {
+    min-height: 100% !important;
+}
 body {
-    background: #000000;
+    background: linear-gradient(135deg, #000000, #722428, #A63135, #AC5C62); 
 }
 p {
     color: #ffffff;

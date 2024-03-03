@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progra</title>
+    <title>Cbtis 118 Fan Page</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+            -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+            outline: none !important;
+        }
         body {
             margin: 0 !important;
             height: 100vh;
@@ -17,8 +24,9 @@
             grid-template-columns: 80px auto auto;
             grid-template-areas: 
             'img cabeza cabeza' 
+            'sidebar contenido contenido'
             'sidebar contenido contenido' 
-            'sidebar widget widget2' 
+            /* 'sidebar widget widget2'  */
             'pie pie pie' ;
             height: 100%;
         }
@@ -29,14 +37,15 @@
                 grid-template-columns: 80px auto auto; /*Determina el tamaño la primer columna de todas las filas y deja las otras dos de tamaño automatico*/
                 grid-template-areas: /*Determina el nombre del area que tendra cada fila y columna, se deja el mismo nombre cuando es un solo componente*/
                 'img cabeza cabeza' 
+                'sidebar contenido contenido'
                 'sidebar contenido contenido' 
-                'sidebar widget widget2' 
+                /* 'sidebar widget widget2'  */
                 'pie pie pie' ;
                 transition: grid-template-columns 0.5s ease; /*Añade un efecto de entrada lento, como si de un fade-in y fade*out se tratara, en este caso en la trancision "grid-template-columns"*/
             }
             .menuLateral {
                 grid-area: sidebar;
-                background: #0f5514;
+                background: linear-gradient(#000000, #A63135);
                 overflow: hidden;
             }
             .hovered{ /*Clase añadida por el eventListener*/
@@ -56,26 +65,29 @@
         }
         .cabeza {
             grid-area: cabeza; /*Todos los grid-area: son como identificadores para el grid-template-areas*/
-            background: #ff5514;
+            background: linear-gradient(90deg, #000000, #722428);
         }
         .pie {
             grid-area: pie;
-            background: #2f3514;
+            background: linear-gradient(90deg, #A63135, #AC5C62);
         }
         .menuLateral{
             grid-area: sidebar;
-            background: #0f5514;
+            background: linear-gradient(#000000, #A63135);
         }
         .contenido {
             grid-area: contenido;
         }
-        .widget {
+        /*.widget {
             grid-area: widget;
             background: #02005f;
         }
         .widget2 {
             grid-area: widget2;
             background: #53053f;
+        }*/
+        .widget, .widget2{
+            display: none !important;
         }
         .img, .cabeza, .pie, .contenido, .widget, .widget2 {
             display: flex;
@@ -120,9 +132,6 @@
             direction: ltr;
             -webkit-font-smoothing: antialiased;
         }
-        object {
-            border: #ffffff solid 1px; /*Preventivo, solo para diferenciar los tamaños de las ventanas -------> quitar*/
-        }
         @media screen and (max-width: 1280px) {
             .liM:active { /*El ":active" aplica los efectos cueando se activa el componente de la calse que se le da, funciona como el hover para celular*/
                 background: #0c0c0c;
@@ -137,7 +146,7 @@
 <body>
     <div class="contenedor">
         <div class="img"><img src="Iconos/cbtis.png" alt="cbtis_118"></div>
-        <div class="cabeza">Cabeza</div>
+        <div class="cabeza"><h3>Centro de Bachillerato Tecnológico Industrial y de Servicios No. 118 "Josefa Ortiz de Domínguez" Corregidora Querétaro</h1></div>
         <div class="menuLateral">
             <ul class="menu-content">
                 <li id="btn" class="liM">
