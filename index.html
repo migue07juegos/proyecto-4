@@ -15,7 +15,7 @@
         body {
             margin: 0 !important;
             height: 100vh;
-            background: linear-gradient(135deg, #000000, #722428, #A63135, #AC5C62);
+            background: linear-gradient(135deg, #000000, #002F78, #1C5E8A, #3079A7);
         }
         .contenedor { /*Contenedor de display grid, que es como si fuera una tabla, abajo se explica sus componentes*/
             display: grid;
@@ -45,7 +45,7 @@
             }
             .menuLateral {
                 grid-area: sidebar;
-                background: linear-gradient(#000000, #A63135);
+                background: linear-gradient(#000000, #1C5E8A);
                 overflow: hidden;
             }
             .hovered{ /*Clase añadida por el eventListener*/
@@ -59,22 +59,24 @@
             grid-area: img;
         }
         img {
-            filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(76deg) brightness(45%) contrast(101%) !important;
             width: 80px;
             height: 57.33px;
             object-fit: scale-down!important;
         }
+        .cbt {
+            filter: invert(90%) sepia(90%) saturate(800%) hue-rotate(170deg) brightness(50%) contrast(160%);
+        }
         .cabeza {
             grid-area: cabeza; /*Todos los grid-area: son como identificadores para el grid-template-areas*/
-            background: linear-gradient(90deg, #000000, #722428);
+            background: linear-gradient(90deg, #000000, #002F78);
         }
         .pie {
             grid-area: pie;
-            background: linear-gradient(90deg, #A63135, #AC5C62);
+            background: linear-gradient(90deg, #1C5E8A, #3079A7);
         }
         .menuLateral{
             grid-area: sidebar;
-            background: linear-gradient(#000000, #A63135);
+            background: linear-gradient(#000000, #1C5E8A);
         }
         .contenido {
             grid-area: contenido;
@@ -96,10 +98,10 @@
             justify-content: center;
             align-items: center;
             vertical-align: middle;
-            color: #858585;
+            color: #6b6b6b;
         }
         .menuLateral {
-            color: #858585;
+            color: #6b6b6b;
         }
         ul {
             padding-inline-start: 0 !important;
@@ -113,14 +115,14 @@
         }
         .aM {
             text-decoration: none;
-            color: #858585;
+            color: #6b6b6b;
             display: flex;
             align-items: center;
             font-family: 'calibri';
         }
         .iconos {
             font-size: 25px;
-            filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(76deg) brightness(50%) contrast(101%) !important; /*Se utiliza el filtro para invertir los colores, en este caso de los iconos*/
+            filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(76deg) brightness(45%) contrast(101%) !important; /*Se utiliza el filtro para invertir los colores, en este caso de los iconos*/
             font-family: 'Material Symbols Outlined';
             font-weight: normal;
             font-style: normal;
@@ -150,7 +152,7 @@
 </head>
 <body>
     <div class="contenedor">
-        <div class="img"><img src="Iconos/cbtis.png" alt="cbtis_118"></div>
+        <div class="img"><img class="cbt" src="Iconos/cbtis.png" alt="cbtis_118"></div>
         <div class="cabeza"><h3>Centro de Bachillerato Tecnológico Industrial y de Servicios No. 118 "Josefa Ortiz de Domínguez" Corregidora Querétaro</h1></div>
         <div class="menuLateral">
             <ul class="menu-content">
