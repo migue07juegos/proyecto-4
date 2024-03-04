@@ -1,0 +1,1 @@
+{"mappings":"ACAA","sources":["index.1911999d.css","style.css"],"sourcesContent":["canvas {\n  position: fixed;\n  top: 0;\n  left: 0;\n}\n/*# sourceMappingURL=index.1911999d.css.map */\n","canvas {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n}"],"names":[],"version":3,"file":"index.1911999d.css.map"}
