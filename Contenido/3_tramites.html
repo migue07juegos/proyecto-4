@@ -1,13 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+      <style>
+    .card {
+      margin: 20px;
+    }
+    /* Contenedor grid para las cartas */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Three columns for desktop */
+      grid-template-rows: repeat(2, auto); /* Two rows for desktop */
+      grid-gap: 20px;
+      align-items: stretch;
+      justify-items: center;
+    }
+    /* Responsive grid container */
+    @media (max-width: 727px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
+      }
+    }
+    @media (max-width: 519px) {
+      .grid-container {
+        grid-template-columns: repeat(1, 1fr); /* One column for very small screens */
+      }
+    }
+  </style>
+  </head>
+  <body>
     <h1>Tramites</h1>
-    <p>Tramites</p>
-</body>
+    <div class="grid-container">
+      <div>
+        <div class="card"></div>
+      </div>
+      <div>
+        <div class="card"></div>
+      </div>
+      <div>
+        <div class="card"></div>
+      </div>
+      <div>
+        <div class="card"></div>
+      </div>
+      <div>
+        <div class="card"></div>
+      </div>
+    </div>
+  </body>
 </html>
