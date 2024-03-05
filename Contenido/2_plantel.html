@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -6,55 +6,80 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-      .card {
-        margin: 20px;
-      }
       /* Contenedor grid para las cartas */
+      body {
+        display: grid;
+        height: 100vh; /* Full viewport height */
+        margin: 0; /* Remove default body margin */
+        place-items: center; /* Center the grid items both horizontally and vertically */
+        overflow-y: auto; /* Allow vertical scrolling */
+        background: linear-gradient(135deg, #000000, #002F78, #1C5E8A, #3079A7);
+      }
+
       .grid-container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 20px;
         align-items: stretch;
         justify-items: center;
       }
+
       /* Responsive del conetendor grid */
-      @media (min-width: 100px) {
+      @media (max-width: 1500px) {
         .grid-container {
-          grid-template-columns: repeat(1, 1fr);
+          grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
+        }
+        .card {
+          height: 140px;
         }
       }
-      @media (min-width: 520px) {
+
+      @media (max-width: 840px) {
         .grid-container {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(1, 1fr); /* One column for very small screens */
+        }
+        .card {
+          height: 140px;
         }
       }
-      @media (min-width: 728px) {
+
+      @media (max-width: 360px) {
         .grid-container {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(1, 1fr); /* One column for very small screens */
+        }
+        .card {
+          height: 110px;
+          width: 190px;
         }
       }
-      @media (min-width: 1024px) {
-        .grid-container {
-          grid-template-columns: repeat(4, 1fr);
+
+      @media (max-height: 750px) {
+        body{
+          height: auto;
         }
+      }
+
+      .card {
+        margin: 20px;
       }
     </style>
   </head>
   <body>
-    <div class="grid-container">
-      <div class="item-1">
-        <div class="card"></div>
-      </div>
-      <div class="item-1">
-        <div class="card"></div>
-      </div>
-      <div class="item-1">
-        <div class="card"></div>
-      </div>
-      <div class="item-2">
-        <div class="card"></div>
+    <div class="">
+      <div class="grid-container">
+        <div>
+          <div class="card"></div>
+        </div>
+        <div>
+          <div class="card"></div>
+        </div>
+        <div>
+          <div class="card"></div>
+        </div>
+        <div>
+          <div class="card"></div>
+        </div>
       </div>
     </div>
   </body>
 </html>
-
