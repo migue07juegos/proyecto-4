@@ -190,6 +190,11 @@
                         <span class="iconos"><img src="Iconos/mapa.svg"></span><span>Mapa</span>
                     </div>
                 </li>
+           <li id="btn6" class="liM">
+                    <div class="aM">
+                        <span class="iconos"><img src="Iconos/calendar.svg"></span><span>Horarios</span>
+                    </div>
+                </li>
                 <li id="btn5" class="liM">
                     <div class="aM">
                         <span class="iconos"><img src="Iconos/gitHub.svg"></span><span>Source</span>
@@ -207,26 +212,31 @@ CENTRO DE BACHILLERATO TECNOLÓGICO INDUSTRIAL Y DE SERVICIOS No. 118 - DERECHOS
         const urlParams = new URLSearchParams(window.location.search); /*Obtiene los parametros de la url que se distinguen con ?parametros=value*/
         const evento = urlParams.get('evento'); /*define el nombre de los parametros*/
 
-        if (evento === 'principal') { /*si el parametro tiene ese valor reliza lo de las llaver*/
-            objeto = document.getElementById("obj");
-            objeto.setAttribute("data", "Contenido/1_principal.html"); 
-        }
-        else if (evento === 'plantel') {
-            objeto = document.getElementById("obj");
-            objeto.setAttribute("data", "Contenido/2_plantel.html"); 
-        }
-        else if (evento === 'tramites') {
-            objeto = document.getElementById("obj");
-            objeto.setAttribute("data", "Contenido/3_tramites.html");
-        }  
-        else if (evento === 'croquis') {
-            objeto = document.getElementById("obj");
-            objeto.setAttribute("data", "Croquis_fase_prueba/dist/index.html");
-        }
-        else if (evento === 'mapa') {
-            objeto = document.getElementById("obj");
-            objeto.setAttribute("data", "Contenido/4_mapa.html");
-        }
+        var objeto = document.getElementById("obj");
+var ruta = "";
+
+switch (evento) {
+    case 'principal':
+        ruta = "Contenido/1_principal.html";
+        break;
+    case 'plantel':
+        ruta = "Contenido/2_plantel.html";
+        break;
+    case 'tramites':
+        ruta = "Contenido/3_tramites.html";
+        break;
+    case 'croquis':
+        ruta = "Croquis_fase_prueba/dist/index.html";
+        break;
+    case 'mapa':
+        ruta = "Contenido/4_mapa.html";
+        break;
+    case 'horarios':
+          ruta = "Contenido/5_horarios.html";
+}
+
+objeto.setAttribute("data", ruta);
+
 
         const menuLateral = document.querySelector('.menuLateral'); /*Selecciona el menu lateral*/
         const contenedor = document.querySelector('.contenedor'); /*Selecciona el contenedor*/
@@ -263,6 +273,11 @@ CENTRO DE BACHILLERATO TECNOLÓGICO INDUSTRIAL Y DE SERVICIOS No. 118 - DERECHOS
             objeto = document.getElementById("obj");
             objeto.setAttribute("data", "Contenido/4_mapa.html");
             window.location.href =  "index.html?evento=mapa";
+        })
+        document.getElementById("btn6").addEventListener("click", function() {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/5_horarios.html");
+            window.location.href =  "index.html?evento=horarios";
         })
         document.getElementById("btn5").addEventListener("click", function() {
             objeto = document.getElementById("obj");
