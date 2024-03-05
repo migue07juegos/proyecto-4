@@ -190,6 +190,26 @@
 CENTRO DE BACHILLERATO TECNOLÓGICO INDUSTRIAL Y DE SERVICIOS No. 118 - DERECHOS RESERVADOS © 2017 - POLÍTICAS DE PRIVACIDAD</div>
     </div>
     <script>
+        const urlParams = new URLSearchParams(window.location.search); /*Obtiene los parametros de la url que se distinguen con ?parametros=value*/
+        const evento = urlParams.get('evento'); /*define el nombre de los parametros*/
+
+        if (evento === 'principal') { /*si el parametro tiene ese valor reliza lo de las llaver*/
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/1_principal.html"); 
+        }
+        else if (evento === 'plantel') {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/2_plantel.html"); 
+        }
+        else if (evento === 'tramites') {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/3_tramites.html");
+        }  
+        else if (evento === 'mapa') {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Croquis_fase_prueba/dist/index.html");
+        }
+
         const menuLateral = document.querySelector('.menuLateral'); /*Selecciona el menu lateral*/
         const contenedor = document.querySelector('.contenedor'); /*Selecciona el contenedor*/
 
@@ -203,19 +223,23 @@ CENTRO DE BACHILLERATO TECNOLÓGICO INDUSTRIAL Y DE SERVICIOS No. 118 - DERECHOS
 
         document.getElementById("btn").addEventListener("click", function() {
             objeto = document.getElementById("obj");
-            objeto.setAttribute("data", "Contenido/1_principal.html") /*Cambia los atributos de la variable objeto, en este caso el data para cambiarle la informacion a la etiqueta <object>*/
+            objeto.setAttribute("data", "Contenido/1_principal.html"); /*Cambia los atributos de la variable objeto, en este caso el data para cambiarle la informacion a la etiqueta <object>*/
+            window.location.href =  "index.html?evento=principal"; /*Setea el valor de los parametros de la url*/
         })
         document.getElementById("btn1").addEventListener("click", function() {
             objeto = document.getElementById("obj");
-            objeto.setAttribute("data", "Contenido/2_plantel.html") /*Cambia los atributos de la variable objeto, en este caso el data para cambiarle la informacion a la etiqueta <object>*/
+            objeto.setAttribute("data", "Contenido/2_plantel.html"); 
+            window.location.href =  "index.html?evento=plantel";
         })
         document.getElementById("btn2").addEventListener("click", function() {
             objeto = document.getElementById("obj");
-            objeto.setAttribute("data", "Contenido/3_tramites.html")
+            objeto.setAttribute("data", "Contenido/3_tramites.html");
+            window.location.href =  "index.html?evento=tramites";
         })  
         document.getElementById("btn3").addEventListener("click", function() {
             objeto = document.getElementById("obj");
-            objeto.setAttribute("data", "Croquis_fase_prueba/dist/index.html")
+            objeto.setAttribute("data", "Croquis_fase_prueba/dist/index.html");
+            window.location.href =  "index.html?evento=mapa";
         })
     </script>
 </body>
