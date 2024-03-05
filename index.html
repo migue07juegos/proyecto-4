@@ -64,6 +64,10 @@
             height: 57.33px;
             object-fit: scale-down!important;
         }
+        svg {
+            width: 80px !important;
+            height: 57.33px !important;
+        }
         .cbt {
             filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(76deg) brightness(45%) contrast(101%) !important;
             /* filter: invert(90%) sepia(90%) saturate(800%) hue-rotate(170deg) brightness(50%) contrast(160%) !important; */
@@ -178,7 +182,17 @@
                 </li>
                 <li id="btn3" class="liM">
                     <div class="aM">
+                        <span class="iconos"><img src="Iconos/croquis.svg"></span><span>Croquis</span>
+                    </div>
+                </li>
+                <li id="btn4" class="liM">
+                    <div class="aM">
                         <span class="iconos"><img src="Iconos/mapa.svg"></span><span>Mapa</span>
+                    </div>
+                </li>
+                <li id="btn5" class="liM">
+                    <div class="aM">
+                        <span class="iconos"><img src="Iconos/gitHub.svg"></span><span>Source</span>
                     </div>
                 </li>
             </ul>
@@ -205,9 +219,13 @@ CENTRO DE BACHILLERATO TECNOLÓGICO INDUSTRIAL Y DE SERVICIOS No. 118 - DERECHOS
             objeto = document.getElementById("obj");
             objeto.setAttribute("data", "Contenido/3_tramites.html");
         }  
-        else if (evento === 'mapa') {
+        else if (evento === 'croquis') {
             objeto = document.getElementById("obj");
             objeto.setAttribute("data", "Croquis_fase_prueba/dist/index.html");
+        }
+        else if (evento === 'mapa') {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/4_mapa.html");
         }
 
         const menuLateral = document.querySelector('.menuLateral'); /*Selecciona el menu lateral*/
@@ -239,7 +257,17 @@ CENTRO DE BACHILLERATO TECNOLÓGICO INDUSTRIAL Y DE SERVICIOS No. 118 - DERECHOS
         document.getElementById("btn3").addEventListener("click", function() {
             objeto = document.getElementById("obj");
             objeto.setAttribute("data", "Croquis_fase_prueba/dist/index.html");
+            window.location.href =  "index.html?evento=croquis";
+        })
+        document.getElementById("btn4").addEventListener("click", function() {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/4_mapa.html");
             window.location.href =  "index.html?evento=mapa";
+        })
+        document.getElementById("btn5").addEventListener("click", function() {
+            objeto = document.getElementById("obj");
+            objeto.setAttribute("data", "Contenido/1_principal.html");
+            window.open("https://github.com/migue07juegos/proyecto-4", "_blank"); /*En lugar de cambiar la url y el contenido, abre una nueva ventana, pasandole el tarjet _blank*/
         })
     </script>
 </body>
