@@ -213,27 +213,28 @@ CENTRO DE BACHILLERATO TECNOLÓGICO INDUSTRIAL Y DE SERVICIOS No. 118 - DERECHOS
         const evento = urlParams.get('evento'); /*define el nombre de los parametros*/
 
         var objeto = document.getElementById("obj");
-var ruta = "";
+        var ruta = "";
 
-switch (evento) {
-    case 'principal':
-        ruta = "Contenido/1_principal.html";
-        break;
-    case 'plantel':
-        ruta = "Contenido/2_plantel.html";
-        break;
-    case 'tramites':
-        ruta = "Contenido/3_tramites.html";
-        break;
-    case 'croquis':
-        ruta = "Croquis_fase_prueba/dist/index.html";
-        break;
-    case 'mapa':
-        ruta = "Contenido/4_mapa.html";
-        break;
-    case 'horarios':
-          ruta = "Contenido/5_horarios.html";
-}
+        switch (evento) {
+          case 'principal':
+            ruta = "Contenido/1_principal.html";
+            break;
+          case 'plantel':
+            ruta = "Contenido/2_plantel.html";
+            break;
+          case 'tramites':
+            ruta = "Contenido/3_tramites.html";
+            break;
+          case 'croquis':
+            ruta = "Croquis_fase_prueba/dist/index.html";
+            break;
+          case 'mapa':
+            ruta = "Contenido/4_mapa.html";
+            break;
+          case 'horarios':
+            ruta = "Contenido/5_horarios.html";
+            break;
+        }
 
 objeto.setAttribute("data", ruta);
 
