@@ -109,11 +109,12 @@
     <h1>Horarios</h1>
     <div class="dropdown">
       <script>
-        /* When the user clicks on the button,
-  toggle between hiding and showing the dropdown content */
+        <!-- muestra el menu con click y oculta las tablas -->
         function myFunction() {
-          document.getElementById("4AMLO").style.display = "none";
-          document.getElementById("4AMEL").style.display = "none";
+          var hiddenDivs = document.querySelectorAll("div:has(table)");
+          hiddenDivs.forEach(function (div) {
+            div.style.display = "none";
+          });
           document.getElementById("myDropdown").classList.toggle("show");
         }
 
@@ -134,17 +135,7 @@
         }
 
         function divChange(inputString) {
-          // // console.log(inputString);
-          // const imageContainer = document.getElementById("imageContainer");
-          // const imgElement = document.createElement("table");
-          //
-          // // Replace child
-          // while (imageContainer.firstChild) {
-          //   imageContainer.removeChild(imageContainer.firstChild);
-          // }
-          //
-          // imgElement.src = inputString;
-          // imageContainer.appendChild(imgElement);
+          // muestra la tabla del grupo en base al id
           document.getElementById(inputString).style.display = "block";
           document.getElementById("myDropdown").classList.toggle("show");
         }
@@ -162,6 +153,8 @@
         <a onclick="divChange('4AMEL')">4AMEL</a>
       </div>
     </div>
+    
+    <!-- divs con las tablas, su id es el grupo -->
     <div id="4AMEL">
       <table>
         <tr>
@@ -379,12 +372,11 @@
         </tr>
       </table>
     </div>
+
+    <!-- Ocultar tablas al cargar la página -->
     <script>
       window.addEventListener("load", function () {
-        // Select all divs containing a table element
         var hiddenDivs = document.querySelectorAll("div:has(table)");
-
-        // Hide each selected div
         hiddenDivs.forEach(function (div) {
           div.style.display = "none";
         });
