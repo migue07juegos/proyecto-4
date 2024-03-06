@@ -13,7 +13,7 @@
       }
 
       img {
-        --size: 40vh;
+        --size: 50vh;
         --f: 5;
         --radius: calc(var(--size) / var(--f));
 
@@ -68,23 +68,40 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
+      .container-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 50vh;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          ". . ."
+          ". . .";
+        align-items: center;
+        justify-items: center;
+      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <img src="../Imagenes/_DSC8411-1.png_resized.png.avif" alt="Plantel" />
-      <div class="centered">Plantel</div>
-    </div>
-    <div class="container">
-      <img src="../Imagenes/_DSC8412-2.png_resized.png.avif" alt="Trámites" />
-      <div class="centered">Trámites</div>
-    </div>
-    <div class="container">
-      <img
-        src="../Imagenes/_DSC8418-8.png_resized.png.avif"
-        alt="Instalaciones"
-      />
-      <div class="centered">Instalaciones</div>
+    <div class="container-grid">
+      <div class="container" onclick="location.href='2_plantel.html';">
+        <img src="../Imagenes/_DSC8411-1.png_resized.png.avif" alt="Plantel" />
+        <div class="centered">Plantel</div>
+      </div>
+      <div></div>
+      <div class="container" onclick="location.href='3_tramites.html';">
+        <img src="../Imagenes/_DSC8412-2.png_resized.png.avif" alt="Trámites" />
+        <div class="centered">Trámites</div>
+      </div>
+      <div></div>
+      <div class="container" onclick="location.href='6_instalaciones.html';">
+        <img
+          src="../Imagenes/_DSC8418-8.png_resized.png.avif"
+          alt="Instalaciones"
+        />
+        <div class="centered">Instalaciones</div>
+      </div>
+      <div></div>
     </div>
   </body>
 </html>
