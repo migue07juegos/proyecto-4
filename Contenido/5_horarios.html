@@ -79,9 +79,29 @@
         width: 80%; /* Adjust as needed */
         height: 70vh;
       }
-      .image-container img {
+      .image-co img {
         width: 100%;
         height: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: sans-serif;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 5px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f7f7f7;
       }
     </style>
   </head>
@@ -90,8 +110,9 @@
     <div class="dropdown">
       <script>
         /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+  toggle between hiding and showing the dropdown content */
         function myFunction() {
+          document.getElementById('4AMLO').style.display = "none";
           document.getElementById("myDropdown").classList.toggle("show");
         }
 
@@ -112,15 +133,22 @@ toggle between hiding and showing the dropdown content */
         }
 
         function divChange(inputString) {
-          console.log(inputString);
-          var imageContainer = document.getElementById("imageContainer");
-          var imgElement = document.createElement("img");
-
-          imgElement.src = inputString;
-          imageContainer.appendChild(imgElement);
+          // // console.log(inputString);
+          // const imageContainer = document.getElementById("imageContainer");
+          // const imgElement = document.createElement("table");
+          //
+          // // Replace child
+          // while (imageContainer.firstChild) {
+          //   imageContainer.removeChild(imageContainer.firstChild);
+          // }
+          //
+          // imgElement.src = inputString;
+          // imageContainer.appendChild(imgElement);
+          document.getElementById(inputString).style.display = "block";
           document.getElementById("myDropdown").classList.toggle("show");
         }
       </script>
+
       <button onclick="myFunction()" class="dropbtn">Dropdown</button>
       <div id="myDropdown" class="dropdown-content">
         <input
@@ -130,7 +158,7 @@ toggle between hiding and showing the dropdown content */
           onkeyup="filterFunction()"
         />
         <a
-          onclick="divChange('https://scontent.fqro3-1.fna.fbcdn.net/v/t39.30808-6/425330381_782929823880454_2608875094309843030_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=3635dc&_nc_ohc=caSd93n80ZMAX9g4nM9&_nc_ht=scontent.fqro3-1.fna&oh=00_AfBLroI3Gajc6Noxvk8tBZkHlnwE63XfuOoXDR0N9gIPrg&oe=65EBDE2D')"
+          onclick="divChange('4AMLO')"
           >4AMLO</a
         >
         <a
@@ -139,6 +167,117 @@ toggle between hiding and showing the dropdown content */
         >
       </div>
     </div>
-    <div class="image-container" id="imageContainer"></div>
+    <div id="4AMLO">
+      <table>
+        <tr>
+          <th colspan="2">
+            Centro de Bachillerato Tecnológico Industrial y de Servicios No. 118
+            "Josefa Ortiz de Domínguez"
+          </th>
+        </tr>
+        <tr>
+          <th>Horario de clase</th>
+          <th>Periodo: Febrero 2024-Julio 2024</th>
+        </tr>
+        <tr>
+          <th>Grupo: 4°A MLO</th>
+          <th>Turno: Matutino</th>
+        </tr>
+        <tr>
+          <th>No.</th>
+          <th>Asignatura</th>
+          <th>Aula</th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+          <th>Tot. Hrs.</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Física I</td>
+          <td>L2</td>
+          <td>13:00-14:00</td>
+          <td>11:00-12:00</td>
+          <td></td>
+          <td>09:00-11:00</td>
+          <td></td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Inglés IV</td>
+          <td>C7</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>11:00-13:00</td>
+          <td>09:00-10:00</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Cálculo Diferencial</td>
+          <td>D3</td>
+          <td>07:00-09:00</td>
+          <td></td>
+          <td>07:00-09:00</td>
+          <td></td>
+          <td></td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Ecología</td>
+          <td>E3</td>
+          <td>09:00-11:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>12:00-14:00</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>
+            Integra la secuencia de documentos para el transporte de mercancías
+          </td>
+          <td>AUM</td>
+          <td>11:00-13:00</td>
+          <td></td>
+          <td>07:00-09:00</td>
+          <td>09:00-11:00</td>
+          <td></td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>
+            Apoya la coordinacion de la operacion del transporte entre origen y
+            destino
+          </td>
+          <td>AUM</td>
+          <td></td>
+          <td></td>
+          <td>07:00-11:00</td>
+          <td></td>
+          <td>10:00-14:00</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Tutorias</td>
+          <td>N4</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>13:00-14:00</td>
+          <td></td>
+          <td>1</td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>
+
