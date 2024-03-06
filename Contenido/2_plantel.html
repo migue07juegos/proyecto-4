@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -13,7 +13,7 @@
         margin: 0; /* Remove default body margin */
         place-items: center; /* Center the grid items both horizontally and vertically */
         overflow-y: auto; /* Allow vertical scrolling */
-        background: linear-gradient(135deg, #000000, #002F78, #1C5E8A, #3079A7);
+        background: linear-gradient(135deg, #000000, #002f78, #1c5e8a, #3079a7);
       }
 
       .grid-container {
@@ -27,7 +27,10 @@
       /* Responsive del conetendor grid */
       @media (max-width: 1500px) {
         .grid-container {
-          grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
+          grid-template-columns: repeat(
+            2,
+            1fr
+          ); /* Two columns for small screens */
         }
         .card {
           height: 140px;
@@ -36,7 +39,10 @@
 
       @media (max-width: 840px) {
         .grid-container {
-          grid-template-columns: repeat(1, 1fr); /* One column for very small screens */
+          grid-template-columns: repeat(
+            1,
+            1fr
+          ); /* One column for very small screens */
         }
         .card {
           height: 140px;
@@ -45,7 +51,10 @@
 
       @media (max-width: 360px) {
         .grid-container {
-          grid-template-columns: repeat(1, 1fr); /* One column for very small screens */
+          grid-template-columns: repeat(
+            1,
+            1fr
+          ); /* One column for very small screens */
         }
         .card {
           height: 110px;
@@ -54,7 +63,7 @@
       }
 
       @media (max-height: 750px) {
-        body{
+        body {
           height: auto;
         }
       }
@@ -65,21 +74,39 @@
     </style>
   </head>
   <body>
-    <div class="">
-      <div class="grid-container">
-        <div>
-          <div class="card"></div>
-        </div>
-        <div>
-          <div class="card"></div>
-        </div>
-        <div>
-          <div class="card"></div>
-        </div>
-        <div>
-          <div class="card"></div>
-        </div>
+    <div class="grid-container">
+      <div id="btn1">
+        <div class="card"></div>
+      </div>
+      <div>
+        <div id="btn2" class="card"></div>
+      </div>
+      <div>
+        <div id="btn3" class="card"></div>
+      </div>
+      <div>
+        <div id="btn4" class="card"></div>
       </div>
     </div>
+
+    <script>
+      const urlParams = new URLSearchParams(
+        window.location.search,
+      ); /*Obtiene los parametros de la url que se distinguen con ?parametros=value*/
+      var ruta = "";
+
+      document.getElementById("btn1").addEventListener("click", function () {
+        window.location.href = "plantel_pages/plantel_historia.html";
+      });
+      document.getElementById("btn2").addEventListener("click", function () {
+        window.location.href = "2_plantel.html?evento=ubicacion";
+      });
+      document.getElementById("btn3").addEventListener("click", function () {
+        window.location.href = "2_plantel.html?evento=objetivos";
+      });
+      document.getElementById("btn4").addEventListener("click", function () {
+        window.location.href = "2_plantel.html?evento=plan";
+      });
+    </script>
   </body>
 </html>
