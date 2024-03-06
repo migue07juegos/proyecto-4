@@ -1,12 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <p>Principal</p>
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @property --radius {
+        syntax: "<length>";
+        inherits: true;
+        initial-value: 0;
+      }
+
+      img {
+        --size: 40vh;
+        --f: 5;
+        --radius: calc(var(--size) / var(--f));
+
+        width: var(--size);
+        height: auto;
+        aspect-ratio: 1.155;
+        object-fit: cover;
+        --cg: #0000, #000 1deg 119deg, #0000 120deg;
+        --rad: radial-gradient(farthest-side, #000 99%, #0000 101%);
+        --s: calc(2 * var(--radius)) calc(2 * var(--radius));
+        -webkit-mask:
+          var(--rad) left calc(0.25 * var(--size) - 0.4 * var(--radius)) top 0 /
+            var(--s),
+          var(--rad) right calc(0.25 * var(--size) - 0.4 * var(--radius)) top 0 /
+            var(--s),
+          var(--rad) left calc(0.25 * var(--size) - 0.4 * var(--radius)) bottom
+            0 / var(--s),
+          var(--rad) right calc(0.25 * var(--size) - 0.4 * var(--radius)) bottom
+            0 / var(--s),
+          var(--rad) left calc(0.15 * var(--radius)) top 50% / var(--s),
+          var(--rad) right calc(0.15 * var(--radius)) top 50% / var(--s),
+          conic-gradient(
+              from 30deg at left calc(-0.3 * var(--radius)) top 50%,
+              var(--cg)
+            )
+            left calc(0.3 * var(--radius)) top 50% /50% calc(100% - 0.8 *
+                var(--radius)),
+          conic-gradient(
+              from -150deg at right calc(-0.3 * var(--radius)) top 50%,
+              var(--cg)
+            )
+            right calc(0.3 * var(--radius)) top 50% /50% calc(100% - 0.8 *
+                var(--radius)),
+          linear-gradient(#000 0 0) center/calc(45% - 1.1 * var(--radius));
+        -webkit-mask-repeat: no-repeat;
+        cursor: pointer;
+        transition: --radius 0.3s linear;
+      }
+      img:hover {
+        --radius: calc(var(--size) / 2.5);
+      }
+      /* Container holding the image and the text */
+      .container {
+        position: relative;
+        text-align: center;
+        color: white;
+      }
+      /* Centered text */
+      .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="../Imagenes/_DSC8411-1.png_resized.png.avif" alt="Plantel" />
+      <div class="centered">Plantel</div>
+    </div>
+    <div class="container">
+      <img src="../Imagenes/_DSC8412-2.png_resized.png.avif" alt="Trámites" />
+      <div class="centered">Trámites</div>
+    </div>
+    <div class="container">
+      <img
+        src="../Imagenes/_DSC8418-8.png_resized.png.avif"
+        alt="Instalaciones"
+      />
+      <div class="centered">Instalaciones</div>
+    </div>
+  </body>
 </html>
