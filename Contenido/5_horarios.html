@@ -1,14 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Horarios</h1> 
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Dropdown Button */
+      .dropbtn {
+        background-color: #04aa6d;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Dropdown button on hover & focus */
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: #3e8e41;
+      }
+
+      /* The search field */
+      #myInput {
+        box-sizing: border-box;
+        background-image: url("searchicon.png");
+        background-position: 14px 12px;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        padding: 14px 20px 12px 45px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      /* The search field when it gets focus/clicked on */
+      #myInput:focus {
+        outline: 3px solid #ddd;
+      }
+
+      /* The container <div> - needed to position the dropdown content */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Content (Hidden by Default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f6f6f6;
+        min-width: 230px;
+        border: 1px solid #ddd;
+        z-index: 1;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+      .show {
+        display: block;
+      }
+      /* Style for image container */
+      .image-container {
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        width: 80%; /* Adjust as needed */
+        height: 70vh;
+      }
+      .image-container img {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Horarios</h1>
+    <div class="dropdown">
+      <script>
+        /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        function filterFunction() {
+          var input, filter, ul, li, a, i;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          div = document.getElementById("myDropdown");
+          a = div.getElementsByTagName("a");
+          for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              a[i].style.display = "";
+            } else {
+              a[i].style.display = "none";
+            }
+          }
+        }
+
+        function divChange(inputString) {
+          console.log(inputString);
+          var imageContainer = document.getElementById("imageContainer");
+          var imgElement = document.createElement("img");
+
+          imgElement.src = inputString;
+          imageContainer.appendChild(imgElement);
+        }
+      </script>
+      <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+      <div id="myDropdown" class="dropdown-content">
+        <input
+          type="text"
+          placeholder="Search.."
+          id="myInput"
+          onkeyup="filterFunction()"
+        />
+        <a
+          onclick="divChange('https://scontent.fqro3-1.fna.fbcdn.net/v/t39.30808-6/425330381_782929823880454_2608875094309843030_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=3635dc&_nc_ohc=caSd93n80ZMAX9g4nM9&_nc_ht=scontent.fqro3-1.fna&oh=00_AfBLroI3Gajc6Noxvk8tBZkHlnwE63XfuOoXDR0N9gIPrg&oe=65EBDE2D')"
+          >4AMLO</a
+        >
+        <a
+          href="https://scontent.fqro3-1.fna.fbcdn.net/v/t39.30808-6/425285860_782929883880448_5948937491977697731_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=3635dc&_nc_ohc=0gURfQCAvQsAX-ExS2b&_nc_ht=scontent.fqro3-1.fna&oh=00_AfC9ricg2F6pQLGuPvhLtwbcGbV-PHBjxJ9dVvPbbxJcAw&oe=65EC635D"
+          >4AMEL</a
+        >
+      </div>
+    </div>
+    <div class="image-container" id="imageContainer"></div>
+  </body>
 </html>
-
-
