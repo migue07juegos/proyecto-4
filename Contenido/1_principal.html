@@ -68,21 +68,43 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
-      .container-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 50vh;
-        gap: 0px 0px;
-        grid-auto-flow: row;
-        grid-template-areas:
-          ". . ."
-          ". . .";
-        align-items: center;
-        justify-items: center;
+      @media screen and (max-width: 1278px) {
+        img {
+          --size: 85vw;
+        }
+        .container-grid {
+          padding-left: 16%;
+          display: grid;
+          grid-template-columns: 80%;
+          grid-template-rows: auto;
+          gap: 0px 0px;
+          grid-auto-flow: row;
+          grid-template-areas:
+            "."
+            "."
+            ".";
+          align-items: center;
+          justify-items: center;
+        }
+      }
+      @media screen and (min-width: 1279px) {
+        .container-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 50vh;
+          gap: 0px 0px;
+          grid-auto-flow: row;
+          grid-template-areas:
+            ". . ."
+            ". . .";
+          align-items: center;
+          justify-items: center;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- hay div vacíos, no borrar, son necesarios para el grid -->
     <div class="container-grid">
       <div class="container" onclick="location.href='2_plantel.html'; ">
         <img src="../Imagenes/_DSC8411-1.png_resized.png.avif" alt="Plantel" />
