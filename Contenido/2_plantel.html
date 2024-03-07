@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
     <style>
       /* Contenedor grid para las cartas */
       body {
@@ -70,7 +69,23 @@
 
       .card {
         margin: 20px;
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
       }
+
+      .card:hover {
+        transform: rotate(-5deg) scale(1.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
     </style>
   </head>
   <body>
@@ -99,13 +114,13 @@
         window.location.href = "plantel_pages/plantel_historia.html";
       });
       document.getElementById("btn2").addEventListener("click", function () {
-        window.location.href = "2_plantel.html?evento=ubicacion";
+        window.location.href = "plantel_pages/#";
       });
       document.getElementById("btn3").addEventListener("click", function () {
-        window.location.href = "2_plantel.html?evento=objetivos";
+        window.location.href = "plantel_pages/plantel_objetivo.html";
       });
       document.getElementById("btn4").addEventListener("click", function () {
-        window.location.href = "2_plantel.html?evento=plan";
+        window.location.href = "plantel_pages/plantel_plan.html";
       });
     </script>
   </body>
