@@ -16,6 +16,13 @@ h1 {
   font-size: 30pt;
 }
 
+h3 {
+  text-align: center;
+  font-family: monospace;
+  color: #6b6b6b;
+  font-size: 20pt;
+}
+
 /* Estilos para grid de fotos */
 .card {
   position: relative;

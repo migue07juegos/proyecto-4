@@ -1,12 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <p>Mapa</p>
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      iframe {
+        padding-left: 2.5%;
+        height: 80vh;
+      }
+      @media screen and (max-width: 1278px) {
+        iframe {
+          padding-left: 5%;
+          height: 95vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ubicación</h1>
+    <h3>
+      Av. Paseo Constituyentes S/N, Tejeda, 76190 Santiago de Querétaro, Qro.
+    </h3>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.895755620066!2d-100.42741982358051!3d20.551445703999196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d34571d9e998db%3A0xe586ecd110cc36b4!2sCBTis%20No.118!5e0!3m2!1ses-419!2smx!4v1709854140682!5m2!1ses-419!2smx"
+      width="95%"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </body>
 </html>
