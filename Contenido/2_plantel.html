@@ -10,17 +10,22 @@
         display: grid;
         height: 100vh; /* Full viewport height */
         margin: 0; /* Remove default body margin */
-        place-items: center; /* Center the grid items both horizontally and vertically */
+        place-items: left; /* Center the grid items both horizontally and vertically */
         overflow-y: auto; /* Allow vertical scrolling */
         background: linear-gradient(135deg, #000000, #002f78, #1c5e8a, #3079a7);
       }
 
-      .grid-container {
+      .container-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 20px;
-        align-items: stretch;
-        justify-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 50vh;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          ". . . ."
+          ". . . .";
+        align-items: left;
+        justify-items: left;
       }
 
       /* Responsive del conetendor grid */
@@ -75,8 +80,8 @@
         background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%);
         border-radius: 10px;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: left;
+        justify-content: left;
         overflow: hidden;
         transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
       }
@@ -86,42 +91,120 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
 
+      @property --radius {
+        syntax: "<length>";
+        inherits: true;
+        initial-value: 0;
+      }
+
+      img {
+        --size: 50vh;
+        --f: 5;
+        --radius: calc(var(--size) / var(--f));
+
+        width: var(--size);
+        height: auto;
+        aspect-ratio: 1.155;
+        object-fit: cover;
+        --cg: #0000, #000 1deg 119deg, #0000 120deg;
+        --rad: radial-gradient(farthest-side, #000 99%, #0000 101%);
+        --s: calc(2 * var(--radius)) calc(2 * var(--radius));
+        -webkit-mask:
+          var(--rad) left calc(0.25 * var(--size) - 0.4 * var(--radius)) top 0 /
+            var(--s),
+          var(--rad) right calc(0.25 * var(--size) - 0.4 * var(--radius)) top 0 /
+            var(--s),
+          var(--rad) left calc(0.25 * var(--size) - 0.4 * var(--radius)) bottom
+            0 / var(--s),
+          var(--rad) right calc(0.25 * var(--size) - 0.4 * var(--radius)) bottom
+            0 / var(--s),
+          var(--rad) left calc(0.15 * var(--radius)) top 50% / var(--s),
+          var(--rad) right calc(0.15 * var(--radius)) top 50% / var(--s),
+          conic-gradient(
+              from 30deg at left calc(-0.3 * var(--radius)) top 50%,
+              var(--cg)
+            )
+            left calc(0.3 * var(--radius)) top 50% /50% calc(100% - 0.8 *
+                var(--radius)),
+          conic-gradient(
+              from -150deg at right calc(-0.3 * var(--radius)) top 50%,
+              var(--cg)
+            )
+            right calc(0.3 * var(--radius)) top 50% /50% calc(100% - 0.8 *
+                var(--radius)),
+          linear-gradient(#000 0 0) center/calc(45% - 1.1 * var(--radius));
+        -webkit-mask-repeat: no-repeat;
+        cursor: pointer;
+        transition: --radius 0.3s linear;
+      }
+      img:hover {
+        --radius: calc(var(--size) / 2.375);
+      }
+      /* Container holding the image and the text */
+      .container {
+        position: relative;
+        text-align: left;
+        color: white;
+      }
+      /* Centered text */
+      .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      /* Container holding the image and the text */
     </style>
   </head>
   <body>
-    <div class="grid-container">
-      <div id="btn1">
-        <div class="card"></div>
+    <div class="container-grid">
+      <div class="container" onclick="location.href='plantel_pages/plantel_historia.html'; ">
+        <img src="../Imagenes/_DSC8411-1.png_resized.png.avif" alt="Historia" />
+        <div class="centered">Historia </div>
       </div>
-      <div>
-        <div id="btn2" class="card"></div>
+      <div></div>
+      <div class="container" onclick="location.href='4_mapa.html';">
+        <img src="../Imagenes/_DSC8412-2.png_resized.png.avif" alt="Ubicacion" />
+        <div class="centered">Ubicacion</div>
       </div>
-      <div>
-        <div id="btn3" class="card"></div>
+      <div></div>
+      <div></div>
+      <div class="container" onclick="location.href='plantel_pages/plantel_objetivo.html';">
+        <img
+          src="../Imagenes/_DSC8418-8.png_resized.png.avif"
+          alt="Objetivo"
+        />
+        <div class="centered">Objetivo</div>
       </div>
-      <div>
-        <div id="btn4" class="card"></div>
+      <div></div>
+      <div class="container" onclick="location.href='plantel_pages/plantel_plan.html';">
+        <img
+          src="../Imagenes/_DSC8420-10.png_resized.png.avif"
+          alt="Plan"
+        />
+        <div class="centered">Plan</div>
       </div>
+      <div></div>
     </div>
 
-    <script>
-      const urlParams = new URLSearchParams(
-        window.location.search,
-      ); /*Obtiene los parametros de la url que se distinguen con ?parametros=value*/
-      var ruta = "";
-
-      document.getElementById("btn1").addEventListener("click", function () {
-        window.location.href = "plantel_pages/plantel_historia.html";
-      });
-      document.getElementById("btn2").addEventListener("click", function () {
-        window.location.href = "plantel_pages/#";
-      });
-      document.getElementById("btn3").addEventListener("click", function () {
-        window.location.href = "plantel_pages/plantel_objetivo.html";
-      });
-      document.getElementById("btn4").addEventListener("click", function () {
-        window.location.href = "plantel_pages/plantel_plan.html";
-      });
-    </script>
+    <!-- <script> -->
+    <!--   const urlParams = new URLSearchParams( -->
+    <!--     window.location.search, -->
+    <!--   ); /*Obtiene los parametros de la url que se distinguen con ?parametros=value*/ -->
+    <!--   var ruta = ""; -->
+    <!---->
+    <!--   document.getElementById("btn1").addEventListener("click", function () { -->
+    <!--     window.location.href = "plantel_pages/plantel_historia.html"; -->
+    <!--   }); -->
+    <!--   document.getElementById("btn2").addEventListener("click", function () { -->
+    <!--     window.location.href = "plantel_pages/#"; -->
+    <!--   }); -->
+    <!--   document.getElementById("btn3").addEventListener("click", function () { -->
+    <!--     window.location.href = "plantel_pages/plantel_objetivo.html"; -->
+    <!--   }); -->
+    <!--   document.getElementById("btn4").addEventListener("click", function () { -->
+    <!--     window.location.href = "plantel_pages/plantel_plan.html"; -->
+    <!--   }); -->
+    <!-- </script> -->
   </body>
 </html>
