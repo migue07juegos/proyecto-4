@@ -152,31 +152,139 @@
           id="myInput"
           onkeyup="filterFunction()"
         />
+        <!-- <a> con nombre del grupo para mostrar en el menu de busqueda -->
         <a onclick="divChange('2AMLO')">2AMLO</a>
         <a onclick="divChange('2AMEL')">2AMEL</a>
         <a onclick="divChange('2BMLO')">2BMLO</a>
+        <a onclick="divChange('2AMMI')">2AMMI</a>
         <a onclick="divChange('4AMLO')">4AMLO</a>
         <a onclick="divChange('4AMEL')">4AMEL</a>
       </div>
     </div>
 
     <!-- divs con las tablas, su id es el grupo -->
+    <div id="2AMMI">
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>ASIGNATURA</th>
+            <th>AULA</th>
+            <th>LUNES</th>
+            <th>MARTES</th>
+            <th>MIERCOLES</th>
+            <th>JUEVES</th>
+            <th>VIERNES</th>
+            <th>HR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Lengua y comunicación Il</td>
+            <td>C2</td>
+            <td></td>
+            <td></td>
+            <td>09:00 - 11:00</td>
+            <td>09:00 - 10:00</td>
+            <td></td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Inglés Il</td>
+            <td>C8</td>
+            <td>09:00 - 10:00</td>
+            <td></td>
+            <td></td>
+            <td>07:00 - 09:00</td>
+            <td></td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Pensamiento matemático Il</td>
+            <td>D5</td>
+            <td></td>
+            <td>12:00 - 14:00</td>
+            <td>12:00 - 14:00</td>
+            <td></td>
+            <td></td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Cultura digital II</td>
+            <td>SC3</td>
+            <td></td>
+            <td>09:00 - 11:00</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>
+              La conservacion de la energia y su interacción con la materia
+            </td>
+            <td>N1</td>
+            <td></td>
+            <td></td>
+            <td>09:00 - 11:00</td>
+            <td>11:00 - 13:00</td>
+            <td></td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Ciencias sociales II</td>
+            <td>E4</td>
+            <td></td>
+            <td>11:00 - 12:00</td>
+            <td>11:00 - 12:00</td>
+            <td></td>
+            <td></td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Recursos socioemocionales II</td>
+            <td>V</td>
+            <td></td>
+            <td></td>
+            <td>14:00 - 16:00</td>
+            <td>14:00 - 15:00</td>
+            <td></td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Maneja instrumentos de medición y dibuja piezas mecánicas</td>
+            <td>TF3</td>
+            <td>10:00 - 14:00</td>
+            <td></td>
+            <td>07:00 - 09:00 TFI</td>
+            <td>10:00 - 14:00</td>
+            <td></td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Ajusta piezas mecanicas mediante trabajo de banco y taladro</td>
+            <td>TF3</td>
+            <td>07:00 - 09:00</td>
+            <td>07:00 - 09:00</td>
+            <td></td>
+            <td>13:00 - 14:00</td>
+            <td>07:00 - 09:00</td>
+            <td>7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div id="2BMLO">
       <table>
-        <tr>
-          <th colspan="2">
-            Centro de Bachillerato Tecnológico Industrial y de Servicios No. 118
-            "Josefa Ortiz de Domínguez"
-          </th>
-        </tr>
-        <tr>
-          <th>Horario de clase</th>
-          <th>Periodo: Febrero 2024-Julio 2024</th>
-        </tr>
-        <tr>
-          <th>Grupo: 2°B MLO</th>
-          <th>Turno: Matutino</th>
-        </tr>
         <tr>
           <th>No.</th>
           <th>Asignatura</th>
@@ -305,20 +413,6 @@
     <div id="2AMLO">
       <table>
         <tr>
-          <th colspan="2">
-            Centro de Bachillerato Tecnológico Industrial y de Servicios No. 118
-            "Josefa Ortiz de Domínguez"
-          </th>
-        </tr>
-        <tr>
-          <th>Horario de clase</th>
-          <th>Periodo: Febrero 2024-Julio 2024</th>
-        </tr>
-        <tr>
-          <th>Grupo: 2°A MLO</th>
-          <th>Turno: Matutino</th>
-        </tr>
-        <tr>
           <th>No.</th>
           <th>Asignatura</th>
           <th>Aula</th>
@@ -410,20 +504,6 @@
     </div>
     <div id="2AMEL">
       <table>
-        <tr>
-          <th colspan="2">
-            Centro de Bachillerato Tecnológico Industrial y de Servicios No. 118
-            "Josefa Ortiz de Domínguez"
-          </th>
-        </tr>
-        <tr>
-          <th>Horario de clase</th>
-          <th>Periodo: Febrero 2024-Julio 2024</th>
-        </tr>
-        <tr>
-          <th>Grupo: 2°A MEL</th>
-          <th>Turno: Matutino</th>
-        </tr>
         <tr>
           <th>No.</th>
           <th>Asignatura</th>
@@ -517,20 +597,6 @@
     <div id="4AMEL">
       <table>
         <tr>
-          <th colspan="2">
-            Centro de Bachillerato Tecnológico Industrial y de Servicios No. 118
-            "Josefa Ortiz de Domínguez"
-          </th>
-        </tr>
-        <tr>
-          <th>Horario de clase</th>
-          <th>Periodo: Febrero 2024-Julio 2024</th>
-        </tr>
-        <tr>
-          <th>Grupo: 4°A MEL</th>
-          <th>Turno: MATUTINO</th>
-        </tr>
-        <tr>
           <th>No.</th>
           <th>ASIGNATURA</th>
           <th>AULA</th>
@@ -622,20 +688,6 @@
     </div>
     <div id="4AMLO">
       <table>
-        <tr>
-          <th colspan="2">
-            Centro de Bachillerato Tecnológico Industrial y de Servicios No. 118
-            "Josefa Ortiz de Domínguez"
-          </th>
-        </tr>
-        <tr>
-          <th>Horario de clase</th>
-          <th>Periodo: Febrero 2024-Julio 2024</th>
-        </tr>
-        <tr>
-          <th>Grupo: 4°A MLO</th>
-          <th>Turno: Matutino</th>
-        </tr>
         <tr>
           <th>No.</th>
           <th>Asignatura</th>
