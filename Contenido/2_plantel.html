@@ -139,6 +139,7 @@
       }
       img:hover {
         --radius: calc(var(--size) / 2.375);
+        border-radius: 50%;
       }
       /* Container holding the image and the text */
       .container {
@@ -149,11 +150,51 @@
       /* Centered text */
       .centered {
         position: absolute;
+        background: rgba(00, 00, 00, 75%);
+        font-size: 22pt;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
-      /* Container holding the image and the text */
+
+      /* Responsive de los hexagonos */
+      @media screen and (max-width: 1278px) {
+        body{
+          height: auto;
+        }
+        img {
+          --size: 85vw;
+        }
+        .container-grid {
+          padding-left: 16%;
+          display: grid;
+          grid-template-columns: 80%;
+          grid-template-rows: auto;
+          gap: 0px 0px;
+          grid-auto-flow: row;
+          grid-template-areas:
+            "."
+            "."
+            "."
+            ".";
+          align-items: center;
+          justify-items: center;
+        }
+      }
+      @media screen and (min-width: 1279px) {
+        .container-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 50vh;
+          gap: 0px 0px;
+          grid-auto-flow: row;
+          grid-template-areas:
+            ". . . ."
+            ". . . .";
+          align-items: center;
+          justify-items: center;
+        }
+      }
     </style>
   </head>
   <body>
@@ -186,25 +227,5 @@
       </div>
       <div></div>
     </div>
-
-    <!-- <script> -->
-    <!--   const urlParams = new URLSearchParams( -->
-    <!--     window.location.search, -->
-    <!--   ); /*Obtiene los parametros de la url que se distinguen con ?parametros=value*/ -->
-    <!--   var ruta = ""; -->
-    <!---->
-    <!--   document.getElementById("btn1").addEventListener("click", function () { -->
-    <!--     window.location.href = "plantel_pages/plantel_historia.html"; -->
-    <!--   }); -->
-    <!--   document.getElementById("btn2").addEventListener("click", function () { -->
-    <!--     window.location.href = "plantel_pages/#"; -->
-    <!--   }); -->
-    <!--   document.getElementById("btn3").addEventListener("click", function () { -->
-    <!--     window.location.href = "plantel_pages/plantel_objetivo.html"; -->
-    <!--   }); -->
-    <!--   document.getElementById("btn4").addEventListener("click", function () { -->
-    <!--     window.location.href = "plantel_pages/plantel_plan.html"; -->
-    <!--   }); -->
-    <!-- </script> -->
   </body>
 </html>
