@@ -162,6 +162,7 @@
             div.style.display = "none";
           });
           document.getElementById("myDropdown").classList.toggle("show");
+          document.activeElement.blur(); // Quita el focus, sin esto se queda en color claro
           document.getElementById("logo_enmedio").style.display = "block";
           document.getElementById("myInput").value = null;
           filterFunction();
