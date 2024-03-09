@@ -5,6 +5,7 @@ body {
   font-family: "calibri";
   background-image: url(../../Imagenes/logo_lobo.png);
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 section {
@@ -14,10 +15,20 @@ section {
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: ". . .";
-  align-items: left;
+  align-items: start;
   justify-items: center;
   text-align: justify;
   font-size: 1.5em;
+}
+
+section div:first-child p {
+  position: fixed;
+  left: 10%;
+}
+
+section div:last-child p {
+  position: fixed;
+  right: 10%;
 }
 
 h1 {
@@ -35,4 +46,26 @@ a:hover {
 
 .texto {
   max-width: 800px;
+}
+
+@media (max-width: 1700px) {
+  section div:first-child p {
+    position: fixed;
+    left: 5%;
+  }
+
+  section div:last-child p {
+    position: fixed;
+    right: 5%;
+  }
+}
+
+@media (max-width: 1200px) {
+  section div:first-child p {
+    visibility: hidden;
+  }
+
+  section div:last-child p {
+    visibility: hidden;
+  }
 }
