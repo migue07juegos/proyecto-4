@@ -1,1 +1,75 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title><link rel="stylesheet" href="index.89118df8.css"></head><body> <div id="canvas-container"> <canvas id="bg"></canvas> <div id="switch-container"> <label class="switch"> <input type="checkbox" class="input__check"> <span class="slider"></span> </label> </div> <div id="mobileInterface" class="noSelect"> <div id="joystickWrapper1" style="touch-action:none"> <div class="collection_0 nipple" id="nipple_0_0"> <div class="back"></div> <div class="front"></div> </div> </div> </div> <div id="contenido"> <div class="croquis_2D"> <img src="croquis_2D.4afca5db.png"> </div> </div> <script type="module" src="nipplejs.min.js"></script> <script type="module" src="index.3a9f9baa.js"></script> <script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelector(".input__check"),n=document.getElementById("bg");e.addEventListener("change",function(){this.checked?(n.style.display="none",document.getElementById("contenido").style.display="block"):(n.style.display="block",document.getElementById("contenido").style.display="none")})});</script> </div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+
+    <div id="canvas-container">
+        <canvas id="bg"></canvas>
+        <div id="switch-container">
+            <label class="switch">
+              <input type="checkbox" class="input__check">
+              <span class="slider"></span>
+            </label>
+        </div>
+        <div id="mobileInterface" class="noSelect">
+            <div id="joystickWrapper1" style="touch-action: none;">
+                <div class="nipple collection_0" id="nipple_0_0">
+                <div class="back"></div>
+                <div class="front"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contenido">
+      <div class="croquis_2D">
+        <img src="croquis_2D.png">
+      </div>
+    </div>
+
+    <script type="module" src="nipplejs.min.js"></script>
+    <script type="module" src="app.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Obtenemos el input checkbox
+        var checkbox = document.querySelector('.input__check');
+        
+        // Guardamos una referencia al canvas
+        var canvasContainer = document.getElementById('bg');
+        
+        // Agregamos un listener para el evento change
+        checkbox.addEventListener('change', function() {
+            // Si el checkbox está chequeado
+            if (this.checked) {
+                // Ocultamos el canvas
+                canvasContainer.style.display = 'none';
+                // Mostramos el contenido
+                document.getElementById('contenido').style.display = 'block';
+            } else {
+                // Si no está chequeado, mostramos el canvas
+                canvasContainer.style.display = 'block';
+                // Ocultamos el contenido
+                document.getElementById('contenido').style.display = 'none';
+            }
+        });
+      });
+    </script>
+</body>
+</html>
+
+<!-- build  -->
+<!-- npx parcel index.html
+npx parcel build index.html -->
+
+<!--  # three.js
+npm install --save three
+
+# vite
+npm install --save-dev vite
+
+npx vite-->

@@ -12,22 +12,12 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-//const transformControls = new TransformControls(camera, renderer.domElement)
-//scene.add(transformControls)
-
 const loader = new GLTFLoader() //importar el modelo 3d en formato gltf
 loader.load(
-    'aulaEscalada.glb',
+    'aula3d.glb',
     function (gltf) {
         scene.add(gltf.scene);
     },
-    // (xhr) => {
-    //     console.log((xhr.loaded / xhr.total) * 100 + '% loaded'); /*debug */
-    // },
-    // (error) => {
-    //     console.log(error);
-    // }
-
 );
 
 const pointLight = new THREE.PointLight(0xffffff,80000); /*Punto de luz*/
@@ -70,48 +60,32 @@ let tempVector = new THREE.Vector3();
 let upVector = new THREE.Vector3(0, 1, 0);
 let joyManager;
 
-camera.position.set(0,1,1);
+camera.position.set(0,2,2);
+
 scene.add(camera);
 
 let controls = new OrbitControls(camera, renderer.domElement); //controles de orbita
-//configuracion de los delimitantes de los controles
-controls.maxDistance = 100;
-controls.minDistance = 100;
-controls.maxPolarAngle = Math.PI / 2;
-controls.minPolarAngle = 0;
-controls.autoRotate = false;
-controls.autoRotateSpeed = 0;
-controls.rotateSpeed = 0.1;
-controls.enableDamping = false;
-controls.dampingFactor = 0.1;
-controls.enableZoom = false;
+
+controls.maxPolarAngle = Math.PI / 2 - .3;
+controls.minPolarAngle = Math.PI / 2 - .3;
+controls.zoomToCursor = true;
 controls.enablePan = false;
-controls.minAzimuthAngle = -Math.PI / 2;
-controls.maxAzimuthAngle = Math.PI / 4; 
 
-let geometry = new THREE.SphereGeometry(5, 32, 32);
-let cubeMaterial = new THREE.MeshNormalMaterial();
-
-//let mesh = new THREE.Mesh(geometry, cubeMaterial);
 let mesh = new THREE.AmbientLight(0xffffff,1);
-let help = new THREE.PointLightHelper(mesh);//debug
 
 scene.add(mesh);
 
-resize();
-animate();
-window.addEventListener("resize", resize);
-
-addJoystick();
-
-function resize() {
+window.addEventListener("resize", ()=> {
   let w = window.innerWidth;
   let h = window.innerHeight;
 
   renderer.setSize(w, h);
   camera.aspect = w / h;
   camera.updateProjectionMatrix();
-}
+});
+
+animate();
+addJoystick();
 
 function animate() {
   updatePlayer();
@@ -119,37 +93,37 @@ function animate() {
   controls.update();
   requestAnimationFrame(animate);
 }
-
+  
 function updatePlayer() {
-  const angle = controls.getAzimuthalAngle();
+const angle = controls.getAzimuthalAngle();
 
-  if (fwdValue > 0) {
+if (fwdValue > 0) {
     tempVector.set(0, 0, -fwdValue).applyAxisAngle(upVector, angle);
     mesh.position.addScaledVector(tempVector, 1);
-  }
+}
 
-  if (bkdValue > 0) {
+if (bkdValue > 0) {
     tempVector.set(0, 0, bkdValue).applyAxisAngle(upVector, angle);
     mesh.position.addScaledVector(tempVector, .5);
-  }
+}
 
-  if (lftValue > 0) {
+if (lftValue > 0) {
     tempVector.set(-lftValue, 0, 0).applyAxisAngle(upVector, angle);
     mesh.position.addScaledVector(tempVector, .5);
-  }
+}
 
-  if (rgtValue > 0) {
+if (rgtValue > 0) {
     tempVector.set(rgtValue, 0, 0).applyAxisAngle(upVector, angle);
     mesh.position.addScaledVector(tempVector, .5);
-  }
+}
 
-  camera.position.sub(controls.target);
-  controls.target.copy(mesh.position);
-  camera.position.add(mesh.position.sub(new THREE.Vector3(0, 0, 0)));
+camera.position.sub(controls.target);
+controls.target.copy(mesh.position);
+camera.position.add(mesh.position.sub(new THREE.Vector3(0, 0, 0)));
 }
 
 function addJoystick() {
-  const options = {
+const options = {
     zone: document.getElementById("joystickWrapper1"),
     size: 120,
     multitouch: true,
@@ -159,36 +133,89 @@ function addJoystick() {
     shape: "circle",
     position: { top: "60px", left: "60px" },
     dynamicPage: true,
-  };
+};
 
-  joyManager = nipplejs.create(options);
+joyManager = nipplejs.create(options);
 
-  joyManager["0"].on("move", function (evt, data) {
+joyManager["0"].on("move", function (evt, data) {
     const forward = data.vector.y;
     const turn = data.vector.x;
 
     if (forward > 0) {
-      fwdValue = Math.abs(forward);
-      bkdValue = 0;
+    fwdValue = Math.abs(forward);
+    bkdValue = 0;
     } else if (forward < 0) {
-      fwdValue = 0;
-      bkdValue = Math.abs(forward);
+    fwdValue = 0;
+    bkdValue = Math.abs(forward);
     }
 
     if (turn > 0) {
-      lftValue = 0;
-      rgtValue = Math.abs(turn);
+    lftValue = 0;
+    rgtValue = Math.abs(turn);
     } else if (turn < 0) {
-      lftValue = Math.abs(turn);
-      rgtValue = 0;
+    lftValue = Math.abs(turn);
+    rgtValue = 0;
     }
-  });
+});
 
-  joyManager["0"].on("end", function (evt) {
+joyManager["0"].on("end", function (evt) {
     bkdValue = 0;
     fwdValue = 0;
     lftValue = 0;
     rgtValue = 0;
-  });
+});
 }
+
+function aumentarVariables(tecla) {
+    switch (tecla) {
+        case 'w':
+            fwdValue = 0.25;
+            break;
+        case 'a':
+            lftValue = 0.25;
+            break;
+        case 's':
+            bkdValue = 0.25;
+            break;
+        case 'd':
+            rgtValue = 0.25;
+            break;
+        default:
+            break;
+    }
+}
+
+function disminuirVariables(tecla) {
+    switch (tecla) {
+        case 'w':
+            fwdValue = 0;
+            break;
+        case 'a':
+            lftValue = 0;
+            break;
+        case 's':
+            bkdValue = 0;
+            break;
+        case 'd':
+            rgtValue = 0;
+            break;
+        default:
+            break;
+    }
+}
+
+document.addEventListener('keydown', function(event) {
+    const tecla = event.key.toLowerCase();
+    if (['w', 'a', 's', 'd'].includes(tecla)) {
+        aumentarVariables(tecla);
+    }
+});
+
+document.addEventListener('keyup', function(event){
+    const tecla = event.key.toLowerCase();
+    if (['w', 'a', 's', 'd'].includes(tecla)) {
+        disminuirVariables(tecla);
+    }
+});
+
 //implementacion del joycon y el script --> nipplejs.min.js --> source : https://github.com/MULUALEM-TEKLE/joystick-case-study
