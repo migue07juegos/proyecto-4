@@ -138,6 +138,17 @@ padding-top: 8%;
   left: 10px;
   touch-action: manipulation;
   }
+  .croquis_2D{
+    max-width: 50%;
+    background: #17202A;
+    /*position: fixed;
+    transform: translate(-50%, -50%)*/;
+    }
+    .croquis_2D img{
+      max-width: 100%;
+    object-fit: scale-down!important;
+    padding-top: 50%;
+    }
 }
 #mobileInterface {
   position: fixed;
