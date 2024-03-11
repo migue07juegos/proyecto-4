@@ -126,7 +126,7 @@ transform: translate(-50%, -50%);
 object-fit: cover;
 padding-top: 8%;
 }
-@media screen and (max-width: 1279px) {
+@media screen and (min-height: 665px) and (max-width: 1279px) {
 
   #mobileInterface {
   position: fixed;
@@ -140,16 +140,45 @@ padding-top: 8%;
   touch-action: manipulation;
   }
   .croquis_2D{
-    max-width: 50%;
+    max-width: 100%;
+    min-width: 100%;
     background: #17202A;
+    text-align: center;
+    justify-content: center;
     /*position: fixed;
     transform: translate(-50%, -50%)*/;
-    }
-    .croquis_2D img{
+  }
+  .croquis_2D img{
       max-width: 100%;
-    object-fit: scale-down!important;
-    padding-top: 50%;
-    }
+      object-fit: scale-down!important;
+  }
+}
+@media screen and (max-height: 664px) and (max-width: 1279px) {
+
+  #mobileInterface {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 11;
+  top: auto;
+  bottom: 150px!important;
+  left: 10px;
+  touch-action: manipulation;
+  }
+  .croquis_2D{
+    max-width: 70%;
+    min-width: 70%;
+    background: #17202A;
+    text-align: center;
+    justify-content: center;
+    /*position: fixed;
+    transform: translate(-50%, -50%)*/;
+  }
+  .croquis_2D img{
+      max-width: 70%;
+      object-fit: scale-down!important;
+  }
 }
 #mobileInterface {
   position: fixed;
