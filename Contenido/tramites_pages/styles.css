@@ -5,7 +5,8 @@ body {
   font-family: "calibri";
   background-image: url(../../Imagenes/logo_lobo.png);
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   color: #dddddd;
 }
