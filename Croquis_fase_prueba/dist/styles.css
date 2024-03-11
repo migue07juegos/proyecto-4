@@ -125,7 +125,20 @@ transform: translate(-50%, -50%);
 object-fit: cover;
 padding-top: 8%;
 }
+@media screen and (max-width: 1279px) {
 
+  #mobileInterface {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 11;
+  top: auto;
+  bottom: 150px!important;
+  left: 10px;
+  touch-action: manipulation;
+  }
+}
 #mobileInterface {
   position: fixed;
   width: 120px;
