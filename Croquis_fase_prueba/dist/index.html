@@ -50,11 +50,13 @@
                 canvasContainer.style.display = 'none';
                 // Mostramos el contenido
                 document.getElementById('contenido').style.display = 'block';
+                document.getElementById('mobileInterface').style.display = 'none';
             } else {
                 // Si no está chequeado, mostramos el canvas
                 canvasContainer.style.display = 'block';
                 // Ocultamos el contenido
                 document.getElementById('contenido').style.display = 'none';
+                document.getElementById('mobileInterface').style.display = '';
             }
         });
       });
