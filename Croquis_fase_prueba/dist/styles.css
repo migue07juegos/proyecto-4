@@ -122,6 +122,7 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 .croquis_2D img{
+  max-width: 100%;
 object-fit: cover;
 padding-top: 8%;
 }
