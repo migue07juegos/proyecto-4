@@ -5,21 +5,21 @@ body {
   background: linear-gradient(135deg, #000000, #002f78, #1c5e8a, #3079a7);
 }
 p {
-  color: #6b6b6b;
+  color: #dddddd;
 }
 
 /* Estilos para h1 */
 h1 {
   text-align: center;
   font-family: monospace;
-  color: #6b6b6b;
+  color: #dddddd;
   font-size: 30pt;
 }
 
 h3 {
   text-align: center;
   font-family: monospace;
-  color: #6b6b6b;
+  color: #dddddd;
   font-size: 20pt;
 }
 
