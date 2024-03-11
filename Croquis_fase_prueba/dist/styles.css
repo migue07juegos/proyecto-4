@@ -146,7 +146,7 @@ padding-top: 8%;
   pointer-events: none;
   z-index: 11;
   top: auto;
-  bottom: 10px!important;
+  bottom: 10px;
   left: 10px;
   touch-action: manipulation;
 }
