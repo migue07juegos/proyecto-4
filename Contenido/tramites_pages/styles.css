@@ -1,4 +1,3 @@
-
 body {
   display: flex;
   justify-content: center;
@@ -69,5 +68,10 @@ a:hover {
 
   section div:last-child p {
     visibility: hidden;
+  }
+}
+@media screen and (max-width: 1278px) {
+  h1 {
+    font-size: 10vw;
   }
 }
