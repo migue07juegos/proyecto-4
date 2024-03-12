@@ -51,6 +51,10 @@ a:hover {
   max-width: 800px;
 }
 
+h1{
+  max-height: 50% !important;
+  font-size: 75%;
+}
 @media (max-width: 1700px) {
   section div:first-child p {
     position: fixed;
@@ -72,8 +76,20 @@ a:hover {
     visibility: hidden;
   }
 }
-@media screen and (max-width: 1278px) {
-  h1 {
-    font-size: 10vw;
-  }
+@media screen and (max-width: 310px) {
+    .texto {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .texto {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    .texto {
+        font-size: 10px;
+    }
 }
